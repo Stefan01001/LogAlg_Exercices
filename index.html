@@ -14,9 +14,14 @@
         <h3>Calculadora</h3>
         <input type="number" id="val1" placeholder="Valor 1"><br>
         <input type="number" id="val2" placeholder="Valor 2"><br>
-        <input type="button" id="btnSum" value="+"><br>
+        <input type="button" id="btnSum" value="+">&nbsp;
+        <input type="button" id="btnSub" value="–">&nbsp;
+        <input type="button" id="btnMul" value="x">&nbsp;
+        <input type="button" id="btnDiv" value="÷"><br>
         <input type="number" id="result" placeholder="Resultado" readonly>
     </form>
+
+
 
     <script>
 
@@ -30,6 +35,7 @@
 
         // Função que testa e soma os valores do formulário.
         function sum() {
+
 
             // Recebe os valores do formulário e converte para números.
             val1 = parseFloat(el('val1').value);
@@ -47,6 +53,76 @@
             // Exibe o resultado da operação no documento.
             el('result').value = result;
         }
+
+        // Função que testa e subtrai os valores do formulário.
+        function sub() {
+
+            // Recebe os valores do formulário e converte para números.
+            val1 = parseFloat(el('val1').value);
+            val2 = parseFloat(el('val2').value);
+
+            // Teste dos valores recebidos.
+            console.log(val1, val2);
+
+            // Se um deles ou ambos não são números sai da função.
+            if (notNumber(val1, val2)) return false;
+
+            // Se ambos são números, subtrai e armazena em 'result'.
+            result = val1 - val2;
+
+            // Exibe o resultado da operação no documento.
+            el('result').value = result;
+
+        }
+
+        // Função que testa e multiplica os valores do formulário.
+        function mul() {
+
+            // Recebe os valores do formulário e converte para números.
+            val1 = parseFloat(el('val1').value);
+            val2 = parseFloat(el('val2').value);
+
+            // Teste dos valores recebidos.
+            console.log(val1, val2);
+
+            // Se um deles ou ambos não são números sai da função.
+            if (notNumber(val1, val2)) return false;
+
+            // Se ambos são números, multiplica e armazena em 'result'.
+            result = val1 * val2;
+
+            // Exibe o resultado da operação no documento.
+            el('result').value = result;
+
+
+        }
+
+
+
+        // Função que testa e divide os valores do formulário.
+        function div() {
+
+            // Recebe os valores do formulário e converte para números.
+            val1 = parseFloat(el('val1').value);
+            val2 = parseFloat(el('val2').value);
+
+            // Teste dos valores recebidos.
+            console.log(val1, val2);
+
+            // Se um deles ou ambos não são números sai da função.
+            if (notNumber(val1, val2)) return false;
+
+            // Se ambos são números, divide e armazena em 'result'.
+            result = val1 / val2;
+
+            // Exibe o resultado da operação no documento.
+            el('result').value = result;
+
+
+
+        }
+
+
 
         /**
          * Função que testa dois valores.
@@ -69,10 +145,19 @@
 
         // Monitora cliques no elemento 'input#bntSum'
         el('btnSum').onclick = sum;
+        el('btnSub').onclick = sub;
+        el('btnMul').onclick = mul;
+        el('btnDiv').onclick = div;
+
 
         // Monitora o foco nos campos
         el('val1').onfocus = function () { el('val1').select(); }
         el('val2').onfocus = function () { el('val2').select(); }
+
+
+
+
+
 
     </script>
 
